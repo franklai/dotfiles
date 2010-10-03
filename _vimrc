@@ -244,3 +244,9 @@ let use_xhtml=1
 if exists('+autochdir')
   set autochdir
 endif
+
+" *** useful vim script ***
+" 
+" SuperTab continued.
+"   http://www.vim.org/scripts/script.php?script_id=1643
+"
