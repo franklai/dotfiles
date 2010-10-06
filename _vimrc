@@ -180,6 +180,8 @@ if has("autocmd")
     " Python/Perl # comments
     autocmd FileType python,perl,makefile    map ,r :s/^/# /<CR>
     autocmd FileType python,perl,makefile    map ,t :s/^# \=//<CR>
+    autocmd FileType sh,conf                 map ,r :s/^/# /<CR>
+    autocmd FileType sh,conf                 map ,t :s/^# \=//<CR>
 
     " C/C++/C#/Java // comments
     autocmd FileType c,cpp,java     map ,r :s/^/\/\/ /<CR>
@@ -217,8 +219,10 @@ endif
     map     <C-n>     <ESC>:tabnew<CR>
     map     <S-TAB>   <ESC>:tabprevious<CR>
     map     <TAB>     <ESC>:tabnext<CR>
-    map     <F12>     : shell<CR>
-    map     <F11>     :set hls!<CR>
+"     map     <F12>     : shell<CR>
+"     map     <F11>     :set hls!<CR>
+    map     <F9>      <ESC>:tabprevious<CR>
+    map     <F10>     <ESC>:tabnext<CR>
     map     <M-z>     <ESC>:tabprevious<CR>
     map     <M-x>     <ESC>:tabnext<CR>
 
@@ -244,6 +248,11 @@ let use_xhtml=1
 if exists('+autochdir')
   set autochdir
 endif
+
+" Use mouse in Vim, test
+" set mouse=a
+" set ttymouse=xterm2
+
 
 " *** useful vim script ***
 " 
