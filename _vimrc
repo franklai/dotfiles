@@ -48,7 +48,8 @@ endif
 
 "" GUI
 " hi[ghlight]
-hi Normal     guifg=Gray80 guibg=Black ctermfg=LightGray ctermbg=Black
+" hi Normal     guifg=Gray80 guibg=Black ctermfg=LightGray ctermbg=Black
+hi Normal     guifg=Gray80 guibg=Black ctermfg=LightGray
 hi Search     guifg=Gray60 guibg=DarkGray gui=reverse
 highlight Search     ctermfg=LightGray ctermbg=DarkGray cterm=reverse
 hi Visual     guifg=Gray25 guibg=DarkGray ctermfg=LightGray ctermbg=DarkGray
