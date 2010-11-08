@@ -181,8 +181,8 @@ if has("autocmd")
     " Python/Perl # comments
     autocmd FileType python,perl,makefile    map ,r :s/^/# /<CR>
     autocmd FileType python,perl,makefile    map ,t :s/^# \=//<CR>
-    autocmd FileType sh,conf                 map ,r :s/^/# /<CR>
-    autocmd FileType sh,conf                 map ,t :s/^# \=//<CR>
+    autocmd FileType sh,conf,apache          map ,r :s/^/# /<CR>
+    autocmd FileType sh,conf,apache          map ,t :s/^# \=//<CR>
 
     " C/C++/C#/Java // comments
     autocmd FileType c,cpp,java     map ,r :s/^/\/\/ /<CR>
@@ -200,11 +200,15 @@ if has("autocmd")
 
     " read different setting file
     "autocmd FileType python source C:/Vim/python.vim
+
+    autocmd BufEnter config.define  set ft=json
 endif
 
 if expand("%:e") == "ctx"
     set filetype=tex
 endif
+
+	imap    jj  <ESC>
 
     imap    <M-z>     <ESC><M-z>
     imap    <M-x>     <ESC><M-x>
@@ -260,3 +264,5 @@ endif
 " SuperTab continued.
 "   http://www.vim.org/scripts/script.php?script_id=1643
 "
+set modeline
+
