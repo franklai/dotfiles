@@ -1,0 +1,7 @@
+.*
+.hg
+CVS
+texts
+*.o
+*.d
+
