@@ -5,3 +5,17 @@ ignore=~/.hgignore
 [web]
 style = gitweb
 
+[alias]
+lg = log --stat
+
+[extensions]
+color =
+pager =
+
+[color]
+# valid modes are win32, ansi, auto, off
+mode = auto
+
+[pager]
+pager = LESS='FSRX' less
+
