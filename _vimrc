@@ -179,8 +179,8 @@ if has("autocmd")
 
     " Comment Block of Text
     " Python/Perl # comments
-    autocmd FileType python,perl,makefile    map ,r :s/^/# /<CR>
-    autocmd FileType python,perl,makefile    map ,t :s/^# \=//<CR>
+    autocmd FileType python,perl,make        map ,r :s/^/# /<CR>
+    autocmd FileType python,perl,make        map ,t :s/^# \=//<CR>
     autocmd FileType sh,conf,apache          map ,r :s/^/# /<CR>
     autocmd FileType sh,conf,apache          map ,t :s/^# \=//<CR>
 
