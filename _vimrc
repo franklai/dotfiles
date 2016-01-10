@@ -6,10 +6,10 @@ if has("multi_byte")
     " set langmenu=none
     "set bomb " write BOM to usc file (not to utf-8 file)
     set termencoding=utf-8
-    set fileencoding=big5
+    set fileencoding=utf-8
     set fileencodings=usc-bom,utf-8,big5,sjis,latin1
     "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
-    set guifont=DejaVu\ Sans\ Mono:h12 guifontwide=MingLiU:h12
+    set guifont=Consolas:h14 guifontwide=MingLiU:h14
 else
     echoerr "Sorry, this version of (g)vim was not compiled with multi_byte"
 endif
@@ -38,60 +38,20 @@ set backspace=indent,eol,start
 "{{{ General
 set nocompatible " get out of horrible vi-compatible mode
 
-"{{{ Hightlight Setting
-hi clear
-set background=dark
-syntax on
-if exists("syntax_on")
-  syntax reset
-endif
+" vim-plug
+" https://github.com/junegunn/vim-plug
+let g:plug_threads = 1 " disable parallell installers
+call plug#begin()
+Plug 'franklai/vim-colors-franklai'
+Plug 'tpope/vim-fugitive'
+Plug 'ervandew/supertab'
+Plug 'walm/jshint.vim'
+Plug 'elzr/vim-json'
+Plug 'jtratner/vim-flavored-markdown'
+call plug#end()
 
-"" GUI
-" hi[ghlight]
-" hi Normal     guifg=Gray80 guibg=Black ctermfg=LightGray ctermbg=Black
-hi Normal     guifg=Gray80 guibg=Black ctermfg=LightGray
-hi Search     guifg=Gray60 guibg=DarkGray gui=reverse
-highlight Search     ctermfg=LightGray ctermbg=DarkGray cterm=reverse
-hi Visual     guifg=Gray25 guibg=DarkGray ctermfg=LightGray ctermbg=DarkGray
-hi Cursor     guifg=Black guibg=Green ctermfg=Black ctermbg=Green
-hi Special    guifg=Red ctermfg=Red
-"hi Comment    guifg=Gray50 guibg=Black ctermfg=DarkGray
-hi Comment    guifg=DarkGreen guibg=Black ctermfg=DarkGreen
-"hi StatusLine guifg=White guibg=Blue gui=NONE ctermfg=White ctermbg=Blue
-"hi StatusLine gui=NONE cterm=NONE
-hi Statement  guifg=Yellow gui=NONE ctermfg=Yellow cterm=NONE
-hi Type       guifg=Cyan gui=NONE ctermfg=Cyan
-hi Structure  guifg=Red  guibg=Black
-hi Constant   guifg=Green guibg=Black ctermfg=Gray
-hi String     guifg=#00CC00 guibg=Black ctermfg=Green
-hi Number     guifg=Magenta ctermfg=Magenta
-hi Identifier guifg=Orange guibg=Black ctermfg=Brown
-hi MatchParen guifg=Black guibg=DarkBlue ctermfg=Black ctermbg=DarkBlue
-hi Folded     guifg=Orange guibg=Black ctermfg=DarkGreen
-
-hi link IncSearch   Visual
-hi link Character   Constant
-hi link Boolean     Constant
-hi link Float       Number
-hi link typedef     Type
-hi link Operator    Statement
-hi link Keyword     Statement
-hi link Exception   Statement
-
-" change diff.vim definition
-syn match diffOldFile	"^--- .*"
-syn match diffNewFile	"^+++ .*"
-hi diffAdded ctermfg=Green ctermbg=DarkGray guifg=Green
-hi diffRemoved ctermfg=Red ctermbg=DarkGray guifg=Red
-hi diffNewFile ctermfg=Green ctermbg=DarkGray guifg=Green
-hi diffOldFile ctermfg=Red ctermbg=DarkGray guifg=Red
-" }}}
-
-
-" test 256 colorscheme
-"set t_Co=256 " enable 256 colors
-"colorscheme xoria256 " set colorscheme to xoria256
-"syntax enable
+colorscheme franklai
+syntax enable
 
 " {{{Vim UI
 set lsp=0 " space it out a little more (easier to read)
@@ -161,12 +121,13 @@ if has("autocmd")
     autocmd FileType c,cpp      noremap <F6> :!gcc -c -Wall %<CR>
     autocmd FileType ruby       noremap <F6> :!ruby %<CR>
     autocmd FileType perl       noremap <F6> :!perl %<CR>
+    autocmd FileType javascript noremap <F6> :!clear;jshint %<CR>
 
     " Automatic close char mapping
     autocmd FileType *          inoremap { {}<LEFT>
     autocmd FileType *          inoremap [ []<LEFT>
     autocmd FileType *          inoremap ( ()<LEFT>
-    autocmd FileType c,cpp,php  inoremap { {<CR>}<C-O>O
+    autocmd FileType c,cpp      inoremap { {<CR>}<C-O>O
     "autocmd FileType javascript inoremap { {<CR>}<C-O>O
     autocmd FileType c,cpp,php  inoremap " ""<LEFT>
     autocmd FileType c,cpp,php  inoremap ' ''<LEFT>
@@ -176,6 +137,7 @@ if has("autocmd")
     autocmd FileType *          set nocindent
     autocmd FileType *          set nosmartindent
     autocmd FileType c,cpp,php  set cindent
+"     autocmd FileType python     set expandtab
 
     " Comment Block of Text
     " Python/Perl # comments
@@ -266,3 +228,7 @@ endif
 "
 set modeline
 
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
