@@ -6,12 +6,14 @@
 [alias]
 	ci = commit
 	st = status
-	lg = log --stat
-	lo = log --name-status
 	br = branch
 	co = checkout
+	lg = log --stat
 	la = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	ll = log --graph --decorate --pretty=oneline --abbrev-commit
+	lo = log --graph --pretty=format:'%C(auto)%h%C(auto)%d %C(reset)%s %C(green)(%ar) %C(bold blue)[%an]' --decorate --date=short
+	ll = log --pretty=format:'%C(yellow)%h%Creset %ai %Cgreen%an%Creset %s' --graph
+	dc = diff --cached
+	lf = log --stat --decorate --format=fuller abbrev-commit
 
 [color]
 	ui = auto
