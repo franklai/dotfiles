@@ -48,10 +48,15 @@ Plug 'ervandew/supertab'
 Plug 'walm/jshint.vim'
 Plug 'elzr/vim-json'
 Plug 'jtratner/vim-flavored-markdown'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'isRuslan/vim-es6'
 call plug#end()
 
 colorscheme franklai
 syntax enable
+filetype on             " Enable filetype detection
+filetype indent on      " Enable filetype-specific indenting
+filetype plugin on      " Enable filetype-specific plugins
 
 " {{{Vim UI
 set lsp=0 " space it out a little more (easier to read)
@@ -95,7 +100,7 @@ set cindent " do c-style indenting
 set tabstop=4 " tab spacing (settings below are just to unify it)
 set softtabstop=4 " unify
 set shiftwidth=4 " unify 
-"set expandtab " real tabs please!
+set expandtab " real tabs please!
 set nowrap " do not wrap lines  
 set smarttab " use tabs at the start of a line, spaces elsewhere
 set ignorecase " case of normal letters in pattern is ignored
@@ -135,9 +140,15 @@ if has("autocmd")
     " different format options
     "autocmd FileType *          set formatoptions=tcql  nocindent
     autocmd FileType *          set nocindent
-    autocmd FileType *          set nosmartindent
+    "autocmd FileType *          set nosmartindent
     autocmd FileType c,cpp,php  set cindent
 "     autocmd FileType python     set expandtab
+    autocmd FileType ruby       set softtabstop=2
+    autocmd FileType ruby       set tabstop=2
+    autocmd FileType ruby       set shiftwidth=2
+    autocmd FileType javascript set softtabstop=2
+    autocmd FileType javascript set tabstop=2
+    autocmd FileType javascript set shiftwidth=2
 
     " Comment Block of Text
     " Python/Perl # comments
@@ -232,3 +243,7 @@ augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+let g:vim_json_syntax_conceal = 0
+
+set noswapfile
