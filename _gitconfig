@@ -2,6 +2,7 @@
 	name = Frank Lai
 [core]
 	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	ci = commit
 	st = status
@@ -10,7 +11,7 @@
 	lg = log --stat
 	la = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	lo = log --graph --pretty=format:'%C(auto)%h%C(auto)%d %C(reset)%s %C(green)(%ar) %C(bold blue)[%an]' --decorate --date=short
-	ll = log --pretty=format:'%C(yellow)%h%Creset %ai %Cgreen%an%Creset %s' --graph
+	ll = log --pretty=format:'%C(yellow)%h%Creset %ai %Cgreen%an%Creset %s' --graph --decorate
 	dc = diff --cached
 	lf = log --stat --decorate --format=fuller abbrev-commit
 
@@ -18,3 +19,6 @@
 	ui = auto
 [pager]
 	branch = false
+[diff-so-fancy]
+	markEmptyLines = false
+	useUnicodeRuler = false
