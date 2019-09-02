@@ -5,7 +5,7 @@ from homely.files import download, mkdir, symlink
 from homely.install import installpkg
 from homely.system import execute
 
-mkdir('~/.vim/autoload')
+# mkdir('~/.vim/autoload')
 
 symlink('_gitconfig', '.gitconfig')
 symlink('_gitignore', '.gitignore')
@@ -36,5 +36,5 @@ home = expanduser('~')
 execute(['sh', install_script], cwd=home)
 
 nvm_url = 'https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh'
-download(nvm_urL, install_script)
+download(nvm_url, install_script)
 
