@@ -21,6 +21,7 @@ nix-env -iA nixpkgs.diff-so-fancy \
 
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install 14
 
 # PHP
 sudo apt install php-cli
