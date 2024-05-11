@@ -109,9 +109,9 @@ set formatoptions=tcrq " See Help (complex)
 set ai " autoindent
 set si " smartindent 
 set cindent " do c-style indenting
-set tabstop=4 " tab spacing (settings below are just to unify it)
-set softtabstop=4 " unify
-set shiftwidth=4 " unify 
+set tabstop=2 " tab spacing (settings below are just to unify it)
+set softtabstop=2 " unify
+set shiftwidth=2 " unify 
 set expandtab " real tabs please!
 set nowrap " do not wrap lines  
 set smarttab " use tabs at the start of a line, spaces elsewhere
@@ -144,7 +144,7 @@ if has("autocmd")
     autocmd FileType *          inoremap { {}<LEFT>
     autocmd FileType *          inoremap [ []<LEFT>
     autocmd FileType *          inoremap ( ()<LEFT>
-    autocmd FileType c,cpp      inoremap { {<CR>}<C-O>O
+    "autocmd FileType c,cpp      inoremap { {<CR>}<C-O>O
     "autocmd FileType javascript inoremap { {<CR>}<C-O>O
     autocmd FileType c,cpp,php  inoremap " ""<LEFT>
     autocmd FileType c,cpp,php  inoremap ' ''<LEFT>
@@ -246,6 +246,8 @@ endif
 " set mouse=a
 " set ttymouse=xterm2
 
+" for NeoVim
+set mouse=r
 
 " *** useful vim script ***
 " 
