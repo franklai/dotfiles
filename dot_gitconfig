@@ -14,13 +14,18 @@
 	ll = log --pretty=format:'%C(yellow)%h%Creset %ai %Cgreen%an%Creset %s' --graph --decorate
 	dc = diff --cached
 	lf = log --stat --decorate --format=fuller abbrev-commit
+	pick = cherry-pick
+	mr = !sh -c 'git fetch origin merge-requests/$1/head:mr-$1 && git checkout mr-$1' -
 
 [color]
 	ui = auto
 [pager]
 	branch = false
 [diff-so-fancy]
-	markEmptyLines = false
+#	markEmptyLines = false
 	useUnicodeRuler = false
 [diff]
 	colormoved = default
+	tool = vimdiff
+[oh-my-zsh]
+	hide-dirty = 1
