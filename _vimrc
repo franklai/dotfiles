@@ -41,6 +41,13 @@ set nocompatible " get out of horrible vi-compatible mode
 " vim-plug
 " https://github.com/junegunn/vim-plug
 let g:plug_threads = 1 " disable parallell installers
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 Plug 'franklai/vim-colors-franklai'
 Plug 'tpope/vim-fugitive'
