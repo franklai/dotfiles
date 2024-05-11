@@ -57,6 +57,11 @@ Plug 'elzr/vim-json'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'isRuslan/vim-es6'
+Plug 'ClockworkNet/vim-apparmor'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf'
+Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 colorscheme franklai
@@ -156,6 +161,9 @@ if has("autocmd")
     autocmd FileType javascript set softtabstop=2
     autocmd FileType javascript set tabstop=2
     autocmd FileType javascript set shiftwidth=2
+    autocmd FileType python set softtabstop=4
+    autocmd FileType python set tabstop=4
+    autocmd FileType python set shiftwidth=4
 
     " Comment Block of Text
     " Python/Perl # comments
