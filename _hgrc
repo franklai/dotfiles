@@ -1,0 +1,7 @@
+[ui]
+username=Frank Lai <franklai@cmlab.csie.ntu.edu.tw>
+ignore=~/.hgignore
+
+[web]
+style = gitweb
+
